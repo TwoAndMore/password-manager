@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "login": "admin",
+      "password": "admin",
+      "id": 1
+    },
+    {
+      "login": "myLogin",
+      "password": "myPassword",
+      "id": 2
+    }
+  ],
+  "passwordItems": [
+    {
+      "userId": 1,
+      "website": "Google",
+      "login": "Duck",
+      "password": "quack",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "website": "Youtube",
+      "login": "MyName",
+      "password": "123123",
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "website": "Gmail",
+      "login": "Dog",
+      "password": "Cat",
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "website": "GGG",
+      "login": "Cool",
+      "password": "table",
+      "id": 4
+    }
+  ]
+}

@@ -6,7 +6,7 @@ export const NavBar: React.FC = () => {
   return (
     <nav className="navbar page__section">
       <ul className="navbar__list">
-        <PageNavLink to="/" text="Login" isEnd />
+        <PageNavLink to="/login" text="Login" isEnd />
         <PageNavLink to="/register" text="Register" />
       </ul>
     </nav>

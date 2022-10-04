@@ -1,12 +1,23 @@
 import './Dashboard.scss';
-import React, { FormEvent, useEffect, useMemo, useState } from 'react';
-import { PasswordModule } from '../../types/PasswordModule';
+import React,
+{
+  FormEvent,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import { useNavigate } from 'react-router-dom';
-import { createPassword, deletePassword, getPasswords, updatePassword } from '../../api/passwordItems';
+import {
+  createPassword,
+  deletePassword,
+  getPasswords,
+  updatePassword,
+} from '../../api/passwordItems';
 import { Loader } from '../Loader/Loader';
 import { PasswordItem } from '../PasswordItem/PasswordItem';
 import { InputField } from '../InputField/InputField';
 import { User } from '../../types/User';
+import { PasswordModule } from '../../types/PasswordModule';
 
 type Props = {
   user: User,
@@ -38,19 +49,23 @@ export const Dashboard: React.FC<Props> = (props) => {
     itemId: number,
     newPassword: string,
   ): void => {
-    updatePassword(itemId, {
-      title: newPassword,
-    })
-      .then(() => setItems((prev: PasswordModule[]) => prev.map(oldPassword => {
-        if (oldPassword.id === itemId) {
-          return {
-            ...oldPassword,
-            password: newPassword,
-          };
-        }
+    if (newPassword.trim().length === 0) {
+      handleDeletePassword(itemId);
+    } else {
+      updatePassword(itemId, {
+        password: newPassword,
+      })
+        .then(() => setItems((prev: PasswordModule[]) => prev.map(oldPassword => {
+          if (oldPassword.id === itemId) {
+            return {
+              ...oldPassword,
+              password: newPassword,
+            };
+          }
 
-        return oldPassword;
-      })));
+          return oldPassword;
+        })));
+    }
   };
 
   const handleCreatePasswordItem = async (
@@ -100,15 +115,11 @@ export const Dashboard: React.FC<Props> = (props) => {
   const handleCloseWindow = () => setIsCreating(false);
 
   const canCreate = useMemo(() => {
-    if (website.trim().length <= 0) {
-      return false;
-    }
-
-    if (login.trim().length <= 0) {
-      return false;
-    }
-
-    if (password.trim().length <= 0) {
+    if (
+      website.trim().length <= 0
+      || login.trim().length <= 0
+      || password.trim().length <= 0
+    ) {
       return false;
     }
 
@@ -217,36 +228,44 @@ export const Dashboard: React.FC<Props> = (props) => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="dashboard__list">
-          <table className="dashboard__table">
-            <thead>
-              <tr>
-                <th>№</th>
-                <th>Web-site</th>
-                <th>Login</th>
-                <th>Password</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
+        <>
+          {items.length > 0 ? (
+            <div className="dashboard__list">
+              <table className="dashboard__table">
+                <thead>
+                  <tr>
+                    <th>№</th>
+                    <th>Web-site</th>
+                    <th>Login</th>
+                    <th>Password</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
 
-            <tbody>
-              {items.map((item, index) => (
-                <PasswordItem
-                  key={item.id}
-                  id={item.id}
-                  index={index}
-                  website={item.website}
-                  login={item.login}
-                  password={item.password}
-                  onEdit={handleUpdatePassword}
-                  onDelete={handleDeletePassword}
-                  currentRevealedId={currentRevealedId}
-                  setCurrentRevealedId={setCurrentRevealedId}
-                />
-              ))}
-            </tbody>
-          </table>
-        </div>
+                <tbody>
+                  {items.map((item, index) => (
+                    <PasswordItem
+                      key={item.id}
+                      id={item.id}
+                      index={index}
+                      website={item.website}
+                      login={item.login}
+                      password={item.password}
+                      onEdit={handleUpdatePassword}
+                      onDelete={handleDeletePassword}
+                      currentRevealedId={currentRevealedId}
+                      setCurrentRevealedId={setCurrentRevealedId}
+                    />
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <h2 className="dashboard__title title">
+              Your list is empty
+            </h2>
+          )}
+        </>
       )}
 
       <button

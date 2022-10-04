@@ -1,10 +1,12 @@
+@import "../../styles/utils/vars";
+
 .inputField {
   &__label-text {
     margin-bottom: 5px;
 
     font-size: 20px;
     font-weight: 700;
-    color: #3c896d;
+    color: $base-color-green;
   }
 
   &__label {
@@ -18,17 +20,17 @@
     height: 35px;
     padding: 0 5px;
 
-    color: #3c896d;
+    color: $base-color-green;
     border: none;
-    border-bottom: 2px solid #3c896d;
+    border-bottom: 2px solid $base-color-green;
     border-radius: 2px;
 
     &:focus {
-      border-color: #4fb286;
+      border-color: $second-color-green;
     }
 
     &::placeholder {
-      color: #3c896d;
+      color: $base-color-green;
     }
   }
 }

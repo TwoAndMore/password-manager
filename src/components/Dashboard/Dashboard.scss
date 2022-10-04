@@ -1,3 +1,5 @@
+@import "../../styles/utils/vars";
+
 .dashboard {
   display: flex;
   flex-direction: column;
@@ -18,13 +20,18 @@
 
     & thead tr {
       text-align: left;
-      background-color: #3c896d;
+      background-color: $base-color-green;
       color: #fff;
     }
 
     & th,
     & td {
-      padding: 12px 15px;
+      padding: 12px;
+    }
+
+    & td {
+      max-width: 100px;
+      word-break: break-word;
     }
 
     & tbody tr:nth-of-type(even) {
@@ -32,7 +39,7 @@
     }
 
     & tbody tr:last-of-type {
-      border-bottom: 2px solid #3c896d;
+      border-bottom: 2px solid $base-color-green;
     }
   }
 
@@ -45,17 +52,17 @@
     height: 30px;
 
     color: white;
-    background-color: #ff5666;
+    background-color: $base-color-red;
     border-radius: 4px;
 
     cursor: pointer;
 
     &:hover {
-      background-color: #d04753;
+      background-color: $second-color-red;
     }
 
     &:active {
-      background-color: #bb3f4b;
+      background-color: $third-color-red;
     }
   }
 
@@ -107,17 +114,25 @@
     height: 24px;
     padding: 4px;
 
-    background-color: #ff5666;
+    background-color: $base-color-red;
     border-radius: 4px;
 
     cursor: pointer;
 
     &:hover {
-      background-color: #d04753;
+      background-color: $second-color-red;
     }
 
     &:active {
-      background-color: #bb3f4b;
+      background-color: $third-color-red;
     }
+  }
+
+  &__input-change {
+    width: 100%;
+  }
+
+  &__password-button {
+    width: 100%;
   }
 }

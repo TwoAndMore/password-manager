@@ -1,3 +1,5 @@
+@import "../../styles/utils/vars";
+
 .notification {
   display: flex;
   justify-content: center;
@@ -7,7 +9,7 @@
   padding: 10px;
 
   border-radius: 6px;
-  background-color: #ff5666;
+  background-color: $base-color-red;
 
   &__text {
     color: #fff;

@@ -9,7 +9,7 @@ import { Loader } from '../Loader/Loader';
 export const Register: React.FC = () => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
   const navigate = useNavigate();
@@ -109,7 +109,7 @@ export const Register: React.FC = () => {
           className="register__button button"
           disabled={!canRegister}
         >
-          {loading ? <Loader /> : 'Register'}
+          {isLoading ? <Loader /> : 'Register'}
         </button>
       </form>
 

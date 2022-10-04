@@ -1,11 +1,11 @@
 import './Login.scss';
-import React, { useContext, useEffect, useMemo, useState } from 'react';
-import { User } from '../../types/User';
+import React, { useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getUserByData } from '../../api/users';
 import { InputField } from '../InputField/InputField';
 import { Notification } from '../Notification/Notification';
 import { Loader } from '../Loader/Loader';
-import { useNavigate } from 'react-router-dom';
+import { User } from '../../types/User';
 
 type Props = {
   onLogin: CallableFunction,
@@ -24,7 +24,6 @@ export const Login: React.FC<Props> = (props) => {
   const saveUser = (user: User) => {
     localStorage.setItem('user', JSON.stringify(user));
     onLogin(user);
-
     navigate('/dashboard');
   };
 
@@ -74,18 +73,6 @@ export const Login: React.FC<Props> = (props) => {
       setIsLoading(false);
     }
   };
-
-  useEffect(() => {
-    const userData = localStorage.getItem('user');
-
-    if (!userData) {
-      return;
-    }
-
-    const user = JSON.parse(userData) as User;
-
-    onLogin(user);
-  }, []);
 
   return (
     <div className="login">

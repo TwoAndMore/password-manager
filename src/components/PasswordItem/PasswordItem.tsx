@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 type Props = {
   id: number,
@@ -25,33 +25,50 @@ export const PasswordItem: React.FC<Props> = (props) => {
     setCurrentRevealedId,
   } = props;
 
-  const [isEditing, setIsEditing] = useState(false);
+  const [isChanging, setIsChanging] = useState(false);
   const [newPassword, setNewPassword] = useState(password);
 
+  const editField = useRef<HTMLInputElement>(null);
+
   const handleChangePassword = () => {
-    setIsEditing(false);
-    onEdit(newPassword);
+    setIsChanging(false);
+    onEdit(id, newPassword);
   };
 
+  useEffect(() => {
+    if (editField.current) {
+      editField.current.focus();
+    }
+  }, [isChanging]);
+
   return (
-    <tr key={id}>
+    <tr>
       <td>{index + 1}</td>
       <td>{website}</td>
       <td>{login}</td>
-      <td
-        onClick={() => setCurrentRevealedId(id)}
-        onDoubleClick={() => setIsEditing(true)}
-      >
-        {isEditing ? (
-          <>
-
-          </>
+      <td>
+        {isChanging ? (
+          <form onSubmit={handleChangePassword}>
+            <input
+              className="dashboard__input-change"
+              type="text"
+              value={newPassword}
+              onChange={e => setNewPassword(e.target.value)}
+              onBlur={handleChangePassword}
+              ref={editField}
+            />
+          </form>
         ) : (
-          <>
+          <button
+            className="dashboard__password-button"
+            type="button"
+            onClick={() => setCurrentRevealedId(id)}
+            onDoubleClick={() => setIsChanging(true)}
+          >
             {currentRevealedId !== id
-              ? '*********'
+              ? '************'
               : `${password}`}
-          </>
+          </button>
         )}
       </td>
       <td>

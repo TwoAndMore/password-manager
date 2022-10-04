@@ -1,3 +1,5 @@
+@import "../../styles/utils/vars";
+
 .navbar {
   display: flex;
   justify-content: center;
@@ -15,20 +17,20 @@
 
     font-weight: 700;
     text-transform: uppercase;
-    color: #4fb286;
+    color: $second-color-green;
 
     &:last-child {
       margin-right: 0;
     }
 
     &:hover {
-      color: #3c896d;
+      color: $base-color-green;
     }
 
     &--active {
       position: relative;
 
-      color: #3c896d;
+      color: $base-color-green;
 
       &:after {
         content: "";
@@ -39,7 +41,7 @@
         bottom: 0;
         left: 0;
 
-        background-color: #3c896d;
+        background-color: $base-color-green;
         border-radius: 4px;
       }
     }

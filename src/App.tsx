@@ -11,15 +11,20 @@ export const App: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    const userInfo = localStorage.getItem('user');
-    const userStorage = userInfo ? JSON.parse(userInfo) : null;
+    const userData = localStorage.getItem('user');
+
+    if (!userData) {
+      return;
+    }
+
+    const userStorage = JSON.parse(userData);
 
     setUser(userStorage);
   }, []);
 
   return (
     <>
-      <NavBar />
+      {!user && <NavBar />}
 
       <main className="main">
         <div className="container">
@@ -32,7 +37,9 @@ export const App: React.FC = () => {
               </>
             ) : (
               <>
+                <Route path="/" element={<Navigate to="/dashboard" replace />} />
                 <Route path="/home" element={<Navigate to="/dashboard" replace />} />
+                <Route path="/login" element={<Navigate to="/dashboard" replace />} />
                 <Route path="/dashboard" element={<Dashboard user={user} setUser={setUser} />} />
               </>
             )}
