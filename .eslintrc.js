@@ -20,6 +20,7 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 0,
     '@typescript-eslint/ban-types': 0,
     '@typescript-eslint/semi': ['error'],
+    '@typescript-eslint/no-explicit-any': 'off',
   },
   parser: '@typescript-eslint/parser',
   plugins: [

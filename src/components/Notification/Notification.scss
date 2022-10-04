@@ -1,0 +1,16 @@
+.notification {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  min-height: 50px;
+  padding: 10px;
+
+  border-radius: 6px;
+  background-color: #ff5666;
+
+  &__text {
+    color: #fff;
+    word-wrap: break-word;
+  }
+}

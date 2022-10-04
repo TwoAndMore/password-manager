@@ -1,3 +1,8 @@
-.starter {
-  font-size: 18px;
+@import "./styles/reset";
+@import "./styles/page";
+@import "./styles/button";
+@import "./styles/title";
+
+html {
+  font-family: 'Roboto', sans-serif;
 }

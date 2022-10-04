@@ -1,0 +1,61 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "login": "Denys",
+      "password": "123"
+    },
+    {
+      "id": 2,
+      "login": "admin",
+      "password": "admin"
+    },
+    {
+      "login": "15",
+      "password": "15",
+      "id": 3
+    },
+    {
+      "login": "534",
+      "password": "54",
+      "id": 4
+    }
+  ],
+  "passwordItems": [
+    {
+      "id": 1,
+      "userId": 1,
+      "website": "Google",
+      "login": "duck",
+      "password": "000"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "website": "Youtube",
+      "login": "Hello",
+      "password": "12"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "website": "Youtube",
+      "login": "Hello",
+      "password": "12"
+    },
+    {
+      "userId": 1,
+      "website": "Yahoo",
+      "login": "Yahoo",
+      "password": "2",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "website": "asdasd",
+      "login": "asdasd",
+      "password": "Zxdasdsad",
+      "id": 6
+    }
+  ]
+}
