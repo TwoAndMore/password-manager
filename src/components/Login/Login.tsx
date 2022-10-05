@@ -23,6 +23,7 @@ export const Login: React.FC<Props> = (props) => {
 
   const saveUser = (user: User) => {
     localStorage.setItem('user', JSON.stringify(user));
+    setIsLoading(false);
     onLogin(user);
     navigate('/dashboard');
   };
@@ -34,6 +35,7 @@ export const Login: React.FC<Props> = (props) => {
       saveUser(user);
     } else {
       setErrorMessage('Incorrect login or password');
+      setIsLoading(false);
     }
   };
 
@@ -69,7 +71,6 @@ export const Login: React.FC<Props> = (props) => {
       await loadUser();
     } catch (error) {
       setErrorMessage('Something went wrong');
-    } finally {
       setIsLoading(false);
     }
   };

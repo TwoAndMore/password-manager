@@ -46,7 +46,7 @@ export const PasswordItem: React.FC<Props> = (props) => {
       <td>{index + 1}</td>
       <td>{website}</td>
       <td>{login}</td>
-      <td>
+      <td style={{ width: '100px' }}>
         {isChanging ? (
           <form onSubmit={handleChangePassword}>
             <input

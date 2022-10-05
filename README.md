@@ -1,41 +1,41 @@
-# Password manager. How to work with.
+# Password manager
 
 ## About
 
 Manage all your passwords for different accounts (mails, devices, accounts, servers, etc.).
 You can add/edit/delete/reveal passwords on the dashboard after login.
 
-You can register or login with existing accounts:
+## Actions
+
+### You can register or login with existing accounts:
 
 * login: **admin**
 * password: **admin**
 
-or
 
 * login: **myLogin**
 * password: **myPassword**
 
-To add a new password, click the "NEW" button:
-
+### To add a new password, click the "NEW" button:
 ![img.png](addData.png)
 
-To delete item, press the red 'X' button.
-To edit password, double-click the password:
-
+### To remove the password, press the red 'X' button. To change the password, double-click on it:
 ![img_1.png](deleteAndEditData.png)
 
 
-For storing data was chosen [json-server](https://github.com/typicode/json-server).
-
-Stack used: 
-* **HTML**, 
-* **CSS(SCSS)**, 
-* **React**, 
+## Stack used
+* **HTML**.
+* **CSS(SCSS)**.
+* **React**.
 * **Typescript**.
+* **[Json-server](https://github.com/typicode/json-server)**.
 
+## Environment requirements
+* **Node v14**.
+* **npm v6**.
 
-## STEPS
-1. Download or clone repository. `git clone https://github.com/TwoAndMore/password-manager`.
+##  How to work with. STEPS
+1. Download or clone repository `git clone https://github.com/TwoAndMore/password-manager`.
 2. Open project folder with code editor (VS Code, WebStorm, other).
 3. Run ```npm install``` in terminal.
 4. Install JSON server ```npm install -g json-server```.

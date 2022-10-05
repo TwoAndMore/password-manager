@@ -11,6 +11,10 @@
   border-radius: 6px;
   background-color: $base-color-red;
 
+  &--green {
+    background-color: $base-color-green;
+  }
+
   &__text {
     color: #fff;
     word-wrap: break-word;

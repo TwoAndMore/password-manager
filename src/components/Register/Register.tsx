@@ -12,6 +12,8 @@ export const Register: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
+  const createdUserMessage = 'User was created';
+
   const navigate = useNavigate();
 
   const canRegister = useMemo(() => {
@@ -34,7 +36,7 @@ export const Register: React.FC = () => {
   const registerUser = () => {
     return createUser({ login, password })
       .then(() => {
-        setErrorMessage('User was created');
+        setErrorMessage(createdUserMessage);
 
         setTimeout(() => {
           navigate('/');
@@ -115,7 +117,10 @@ export const Register: React.FC = () => {
 
       {errorMessage.length !== 0 && (
         <div className="login__message">
-          <Notification text={errorMessage} />
+          <Notification
+            text={errorMessage}
+            isGreen={errorMessage === createdUserMessage}
+          />
         </div>
       )}
     </div>
