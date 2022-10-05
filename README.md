@@ -9,12 +9,12 @@ You can add/edit/delete/reveal passwords on the dashboard after login.
 
 ### You can register or login with existing accounts:
 
-* login: **admin**
-* password: **admin**
+* login: **admin**.
+* password: **admin**.
 
 
-* login: **myLogin**
-* password: **myPassword**
+* login: **myLogin**.
+* password: **myPassword**.
 
 ### To add a new password, click the "NEW" button:
 ![img.png](addData.png)
